@@ -62,31 +62,23 @@ function TodoListWithUseReducer() {
     const [state,dispatch] = useReducer(reducer,initState)
     const {item,items} = state
     const inputRef = useRef()
-
     const handleAddItem = () => {
         dispatch(addItem(state.item))
-        dispatch(setItem(''))
-        inputRef.current.focus()
     }
-
     const handleRemoveItem = index => {
         dispatch(removeItem(index))
     }
-
     return (
         <div>
             <input
-            ref = {inputRef}
             value = {item}
             onChange={e => {
-                e.target.value && dispatch(setItem(e.target.value))
+                dispatch(setItem(e.target.value))
             }}
             type="text" />
-
             <button
             onClick={handleAddItem}
             >Add</button>
-
             <div>
                 {items.map((item,index) => (
                     <div key={index}>

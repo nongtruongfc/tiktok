@@ -1,4 +1,4 @@
-import {useReducer, useRef} from 'react'
+import {useReducer} from 'react'
 // useReducer
 //1. Init State
 const initState = {
@@ -32,27 +32,21 @@ const removeItem = payload => {
 const reducer = (state, action) => {
     switch (action.type) {
         case SET_ITEM:
-            return {
+            const newState = {
                 ...state,
                 item: action.payload            
             }
-
+            return newState
         case ADD_ITEM:
             const newItems = [...state.items]
             newItems.push(action.payload)
-            return {
+            const newState2 = {
                 ...state,
                 items: newItems
             }
-            
+            return newState2
         case REMOVE_ITEM:
-            const newItems2 = [...state.items]
-            newItems2.splice(action.payload,1)
 
-            return {
-                ...state,
-                items: newItems2
-            }
         default:
             new Error('Invalid action')
     }
@@ -61,32 +55,24 @@ const reducer = (state, action) => {
 function TodoListWithUseReducer() {
     const [state,dispatch] = useReducer(reducer,initState)
     const {item,items} = state
-    const inputRef = useRef()
-
+    console.log(state.item)
     const handleAddItem = () => {
         dispatch(addItem(state.item))
-        dispatch(setItem(''))
-        inputRef.current.focus()
     }
-
     const handleRemoveItem = index => {
         dispatch(removeItem(index))
     }
-
     return (
         <div>
             <input
-            ref = {inputRef}
             value = {item}
             onChange={e => {
-                e.target.value && dispatch(setItem(e.target.value))
+                dispatch(setItem(e.target.value))
             }}
             type="text" />
-
             <button
             onClick={handleAddItem}
             >Add</button>
-
             <div>
                 {items.map((item,index) => (
                     <div key={index}>

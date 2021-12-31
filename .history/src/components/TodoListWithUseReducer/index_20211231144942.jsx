@@ -65,8 +65,6 @@ function TodoListWithUseReducer() {
 
     const handleAddItem = () => {
         dispatch(addItem(state.item))
-        dispatch(setItem(''))
-        inputRef.current.focus()
     }
 
     const handleRemoveItem = index => {
