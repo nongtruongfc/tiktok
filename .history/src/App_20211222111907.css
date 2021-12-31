@@ -1,7 +1,4 @@
 /* Base setting, you can remove */
-html {
-  scroll-behavior: smooth
-}
 * {
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
@@ -30,16 +27,3 @@ html {
     padding: 10px;
     border: 1px solid #eee;
   }
-
-.back-to-top {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  border-radius: 100%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  background: #333;
-  color: #fff;
-  font-size: 16px;
-}

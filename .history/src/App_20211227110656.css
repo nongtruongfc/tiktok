@@ -1,7 +1,4 @@
 /* Base setting, you can remove */
-html {
-  scroll-behavior: smooth
-}
 * {
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;

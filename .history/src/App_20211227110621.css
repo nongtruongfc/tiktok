@@ -1,7 +1,4 @@
 /* Base setting, you can remove */
-html {
-  scroll-behavior: smooth
-}
 * {
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
@@ -39,7 +36,4 @@ html {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  background: #333;
-  color: #fff;
-  font-size: 16px;
 }
